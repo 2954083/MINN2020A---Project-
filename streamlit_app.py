@@ -16,18 +16,19 @@ def load_data():
     
     # Reconcile Risk Levels
     for w in workers:
-        msgs, serious = [], False
+        serious = False
         if w["PPE_Compliance_pct"] < 80: serious = True
         if w["FatigueLevel_1to10"] >= 8: serious = True
-        w["RiskLevel"] = "High" if serious else "Medium" if (w["PPE_Compliance_pct"] < 90 or w["FatigueLevel_1to10"] >= 5) else "Low"
-        
+        if serious:
+            w["RiskLevel"] = "High"
+        elif w["PPE_Compliance_pct"] < 90 or w["FatigueLevel_1to10"] >= 5:
+            w["RiskLevel"] = "Medium"
+        else:
+            w["RiskLevel"] = "Low"
+            
     return workers, incidents, equipment
 
 workers, incidents, equipment = load_data()
-
-# Session state for alerts
-if 'alert_log' not in st.session_state:
-    st.session_state.alert_log = []
 
 # ==========================================
 # 2. HELPER FUNCTIONS
@@ -60,7 +61,6 @@ position = st.sidebar.selectbox(
 )
 
 menu_options = ["View Dashboard", "Worker Safety Data", "Safety Incidents", "Equipment Data", "Maintenance Data"]
-# Simple RBAC Logic
 if position == "Safety Officer": 
     menu_options = [m for m in menu_options if m not in ["Equipment Data", "Maintenance Data"]]
 elif position == "Maintenance Engineer":
@@ -107,7 +107,6 @@ elif menu_choice == "Worker Safety Data":
 elif menu_choice == "Safety Incidents":
     st.title("⚠️ Safety Incidents Database")
     
-    # Filters
     col1, col2 = st.columns(2)
     shift_filter = col1.selectbox("Filter by Shift", ["All", "Day", "Night"])
     sev_filter = col2.selectbox("Filter by Severity Class", ["All", "Low", "High", "Critical"])
@@ -117,18 +116,6 @@ elif menu_choice == "Safety Incidents":
     if sev_filter != "All": df_inc = df_inc[df_inc["SeverityClass"] == sev_filter]
     
     st.dataframe(df_inc[["IncidentID", "Date", "Shift", "IncidentType", "SeverityClass", "IncidentStatus"]], use_container_width=True)
-    
-    st.subheader("Add New Incident")
-    with st.form("add_incident"):
-        new_date = st.date_input("Date")
-        new_shift = st.selectbox("Shift", ["Day", "Night"])
-        new_type = st.text_input("Incident Type")
-        new_sev = st.selectbox("Severity Class", ["Low", "High", "Critical"])
-        submit = st.form_submit_button("Log Incident")
-        
-        if submit:
-            st.success(f"Incident logged successfully for {new_date} ({new_shift} shift).")
-            # Note: In a real app, you would append to incidents list and save to CSV here.
 
 # --- EQUIPMENT ---
 elif menu_choice == "Equipment Data":
@@ -158,3 +145,4 @@ elif menu_choice == "Maintenance Data":
             st.warning(f"**{row['EquipmentID']}** ({row['EquipmentType']}): {', '.join(flags)}")
         else:
             st.success(f"**{row['EquipmentID']}** ({row['EquipmentType']}): OK")
+        
