@@ -1,0 +1,20 @@
+EquipmentID,EquipmentType,Manufacturer,SectionID,OperatingHours,DowntimeHours,Availability_pct,Temperature_C,Vibration_mms,FuelConsumption_Lph,BrakeStatus,TyreStatus,EngineStatus,LastServiceDate,NextServiceDue,MaintenanceStatus,AlertCount
+TRK-101,Haul Truck,Caterpillar,SEC001,16210,540,96.8,104.6,9.1,95.2,Good,Good,Fair,2023-07-14,2023-10-12,Overdue,7
+TRK-102,Haul Truck,Komatsu,SEC002,9310,410,95.8,74.2,3.4,68.5,Good,Good,Good,2023-08-22,2023-11-20,Due,2
+TRK-103,Haul Truck,Hitachi,SEC009,11240,1205,90.3,98.7,7.8,88.1,Worn,Worn,Poor,2023-06-30,2023-09-28,Overdue,8
+TRK-104,Haul Truck,Komatsu,SEC012,6805,265,96.3,66.9,2.1,42.7,Good,Good,Good,2023-09-18,2024-01-16,Up to Date,1
+TRK-105,Haul Truck,Caterpillar,SEC013,14990,95,99.4,71.5,3.8,79.6,Good,Good,Good,2023-10-05,2024-02-02,Up to Date,0
+LDR-101,Loader,Sandvik,SEC004,7880,340,95.9,77.8,4.2,55.3,Good,Good,Good,2023-08-11,2023-11-09,Due,3
+LDR-102,Loader,Caterpillar,SEC008,4265,680,86.2,82.3,6.1,31.8,Worn,Good,Fair,2023-06-18,2023-09-16,Overdue,6
+LDR-103,Loader,Sandvik,SEC016,9410,140,98.5,69.4,2.6,48.9,Good,Good,Good,2023-09-27,2024-01-25,Up to Date,1
+EXC-101,Excavator,Liebherr,SEC005,13320,470,96.6,63.1,3.9,72.4,Good,N/A,Good,2023-08-03,2023-11-01,Overdue,2
+EXC-102,Excavator,Komatsu,SEC011,6240,385,94.2,58.7,2.5,64.2,Good,N/A,Good,2023-09-14,2024-02-12,Up to Date,0
+DRL-101,Drilling Machine,Epiroc,SEC006,5120,290,94.6,118.4,10.1,0.0,N/A,N/A,Fair,2023-07-21,2024-01-17,Up to Date,5
+DRL-102,Drilling Machine,Sandvik,SEC010,10980,655,94.4,59.6,3.1,0.0,N/A,N/A,Good,2023-07-08,2023-10-06,Overdue,2
+DRL-103,Drilling Machine,Epiroc,SEC015,3980,95,97.7,68.2,2.2,0.0,N/A,N/A,Good,2023-09-30,2024-03-28,Up to Date,0
+BLD-101,Bulldozer,Komatsu,SEC003,15120,1380,91.6,101.3,8.6,89.7,Good,N/A,Fair,2023-06-12,2023-09-10,Overdue,6
+BLD-102,Bulldozer,Caterpillar,SEC007,8740,320,96.5,72.9,2.9,81.2,Good,N/A,Good,2023-09-05,2023-12-04,Up to Date,1
+SCW-101,Scraper Winch,Joy Global,SEC013,7420,1290,85.2,102.8,9.4,0.0,N/A,N/A,Poor,2023-06-25,2023-09-23,Overdue,9
+SCW-102,Scraper Winch,Becker,SEC016,11860,415,96.6,78.4,5.6,0.0,N/A,N/A,Good,2023-08-29,2024-02-25,Up to Date,3
+CRS-101,Crusher,Metso,SEC012,9650,180,98.2,92.7,6.8,0.0,N/A,N/A,Good,2023-08-16,2023-11-14,Due,4
+CNV-101,Conveyor,Continental,SEC010,10240,1085,90.4,97.5,8.9,0.0,N/A,N/A,Fair,2023-07-03,2023-10-01,Overdue,5

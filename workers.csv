@@ -1,0 +1,31 @@
+WorkerID,Name,JobRole,SectionID,Department,MineArea,ContractType,Age,Shift,PPE_Compliance_pct,SafetyTrainingStatus,FatigueLevel_1to10,SafetyObservations,NearMisses,PreviousIncidents,RiskLevel
+EMP0001,Thandiwe Nkosi,Stope Miner,SEC001,11A Stope,North Shaft,Permanent,34,Day,92,Valid,3,2,0,0,Low
+EMP0002,Sipho Dlamini,Scraper Winch Operator,SEC001,11A Stope,North Shaft,Contract,47,Night,64,Expired,9,1,1,3,High
+EMP0003,Lerato Mokoena,Lashing Operator,SEC002,11B Stope,South Shaft,Permanent,29,Day,97,Due Soon,5,3,0,1,Medium
+EMP0004,Johan van Wyk,Blasting Assistant,SEC002,11B Stope,South Shaft,Contract,52,Night,88,Valid,7,1,0,0,Medium
+EMP0005,Nomsa Khumalo,Artisan (Electrician),SEC003,12A Stope,East Wing,Permanent,41,Day,100,Valid,2,0,0,0,Low
+EMP0006,Bongani Zulu,Loco Driver,SEC003,12A Stope,East Wing,Contract,38,Night,76,Valid,8,2,1,2,High
+EMP0007,Precious Mthembu,Winch Operator,SEC004,12B Stope,West Wing,Permanent,55,Day,84,Due Soon,6,4,0,1,Medium
+EMP0008,Tshepo Mabaso,Development Miner,SEC004,12B Stope,West Wing,Contract,26,Night,70,Valid,10,1,0,0,High
+EMP0009,Kagiso Sithole,Team Leader,SEC005,13A Stope,North Shaft,Permanent,48,Day,95,Valid,4,2,0,0,Low
+EMP0010,Andile Ntuli,Rock Drill Operator,SEC005,13A Stope,North Shaft,Contract,33,Night,89,Valid,5,3,1,1,Low
+EMP0011,Michelle du Toit,Mine Overseer,SEC006,13B Stope,South Shaft,Permanent,44,Day,98,Valid,3,1,0,2,Low
+EMP0012,Sibusiso Ngcobo,Timber Sampler,SEC006,13B Stope,South Shaft,Contract,57,Night,72,Expired,9,0,0,1,High
+EMP0013,Naledi Phiri,Artisan (Fitter),SEC007,14A Stope,East Wing,Permanent,31,Day,91,Valid,6,2,0,0,Low
+EMP0014,Riaan Pretorius,Shift Boss,SEC007,14A Stope,East Wing,Permanent,50,Night,87,Valid,4,3,1,2,Low
+EMP0015,Zanele Mahlangu,Stope Miner,SEC008,14B Stope,West Wing,Contract,27,Day,68,Valid,8,1,1,1,High
+EMP0016,Dineo Molefe,Lashing Operator,SEC008,14B Stope,West Wing,Permanent,39,Night,94,Valid,5,2,0,0,Low
+EMP0017,Karabo Motsepe,Scraper Winch Operator,SEC009,Development East,North Shaft,Contract,45,Day,83,Due Soon,7,2,0,1,Medium
+EMP0018,Fikile Cele,Development Miner,SEC009,Development East,North Shaft,Permanent,36,Night,99,Valid,2,3,0,0,Low
+EMP0019,Hendrik Steyn,Loco Driver,SEC010,Development West,South Shaft,Permanent,42,Day,79,Valid,6,1,0,2,High
+EMP0020,Amahle Dube,Winch Operator,SEC010,Development West,South Shaft,Contract,28,Night,96,Valid,4,0,0,0,Low
+EMP0021,Mandla Ngwenya,Team Leader,SEC011,Development North,East Wing,Permanent,53,Day,100,Valid,3,2,0,1,Low
+EMP0022,Ayanda Khumalo,Rock Drill Operator,SEC011,Development North,East Wing,Contract,24,Night,61,Expired,10,1,0,3,High
+EMP0023,Pieter Fourie,Artisan (Fitter),SEC012,Haulage L11,West Wing,Permanent,46,Day,90,Due Soon,5,3,0,0,Medium
+EMP0024,Nosipho Mthethwa,Blasting Assistant,SEC012,Haulage L11,West Wing,Contract,37,Night,85,Valid,7,2,1,1,Medium
+EMP0025,Thabo Ramaphosa,Mine Overseer,SEC013,Haulage L12,North Shaft,Permanent,58,Day,93,Valid,4,1,0,2,Low
+EMP0026,Lindiwe Sithole,Stope Miner,SEC013,Haulage L12,North Shaft,Contract,30,Night,74,Valid,8,0,0,0,High
+EMP0027,Craig Botha,Artisan (Electrician),SEC015,Raise 1,East Wing,Permanent,40,Day,97,Valid,2,2,0,1,Low
+EMP0028,Nompumelelo Zulu,Development Miner,SEC015,Raise 1,East Wing,Contract,35,Night,88,Due Soon,6,3,0,0,Medium
+EMP0029,Sizwe Moyo,Scraper Winch Operator,SEC016,Raise 2,West Wing,Permanent,49,Day,82,Valid,9,1,1,2,High
+EMP0030,Refilwe Mabena,Loco Driver,SEC016,Raise 2,West Wing,Contract,27,Night,99,Valid,3,0,0,0,Low
