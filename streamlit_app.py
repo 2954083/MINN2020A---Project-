@@ -7,7 +7,7 @@ from datetime import datetime
 # ==========================================
 st.set_page_config(page_title="Khwezi Mining Monitor", page_icon="⛏️", layout="wide")
 st.image(
-    "underground-mining-equipment",
+    "underground-mining-equipment.jpg",
     use_column_width=True
 )
 st.markdown(
