@@ -6,7 +6,7 @@ import streamlit as st
 
 st.write("Current folder:", os.getcwd())
 st.write("Image exists:", os.path.exists("underground-mining-equipment.webp"))
-st.set_page_config(page_title="Khwezi Mining Monitor", page_icon=" ",  layout="wide")
+st.set_page_config(page_title="Khwezi Mining Monitor",  layout="wide")
 st.image( "underground-mining-equipment.webp", use_container_width=True )
 
 st.markdown(
