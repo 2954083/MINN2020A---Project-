@@ -2,14 +2,9 @@ import streamlit as st
 import pandas as pd
 from datetime import datetime
 
-# ==========================================
-# 1. PAGE CONFIG & SETUP
-# ==========================================
 st.set_page_config(page_title="Khwezi Mining Monitor", page_icon="⛏️", layout="wide")
-st.image(
-    "underground-mining-equipment.jpg",
-    use_column_width=True
-)
+st.image( "underground-mining-equipment.webp", use_container_width=True )
+
 st.markdown(
     "<h2 style='text-align: center; color: #D4AF37; font-style: italic;'>"
     '"If it can\'t be grown, it must be mined."'
@@ -41,9 +36,7 @@ def load_data():
 
 workers, incidents, equipment = load_data()
 
-# ==========================================
-# 2. HELPER FUNCTIONS
-# ==========================================
+
 def temp_status(t):
     return "NORMAL" if t < 80 else ("WARNING" if t <= 100 else "CRITICAL")
 
@@ -60,10 +53,8 @@ def maintenance_flags(e):
         flags.append(f"HIGH ALERTS ({e['AlertCount']})")
     return flags
 
-# ==========================================
-# 3. SIDEBAR (Login & Navigation)
-# ==========================================
-st.sidebar.title("⛏️ Khwezi Mining")
+
+st.sidebar.title(" Khwezi Mining")
 st.sidebar.subheader("Role-Based Access Control")
 
 position = st.sidebar.selectbox(
@@ -79,13 +70,10 @@ elif position == "Maintenance Engineer":
 
 menu_choice = st.sidebar.radio("Navigate to:", menu_options)
 
-# ==========================================
-# 4. MAIN APP PAGES
-# ==========================================
 
-# --- DASHBOARD ---
+
 if menu_choice == "View Dashboard":
-    st.title("📊 Monitoring Dashboard")
+    st.title(" Monitoring Dashboard")
     st.markdown(f"Logged in as: **{position}**")
     
     col1, col2, col3, col4 = st.columns(4)
@@ -98,25 +86,25 @@ if menu_choice == "View Dashboard":
     st.subheader("Quick Alert Summary")
     critical_equip = [e["EquipmentID"] for e in equipment if temp_status(e["Temperature_C"]) == "CRITICAL" or vib_status(e["Vibration_mms"]) == "CRITICAL"]
     if critical_equip:
-        st.error(f"🚨 CRITICAL equipment temperature/vibration detected on: {', '.join(critical_equip)}")
+        st.error(f" CRITICAL equipment temperature/vibration detected on: {', '.join(critical_equip)}")
     else:
-        st.success("✅ All equipment within normal operating limits.")
+        st.success(" All equipment within normal operating limits.")
 
-# --- WORKER SAFETY ---
+
 elif menu_choice == "Worker Safety Data":
-    st.title("👷 Worker Safety Data")
+    st.title("Worker Safety Data")
     df_workers = pd.DataFrame(workers)
     st.dataframe(df_workers[["WorkerID", "Name", "JobRole", "PPE_Compliance_pct", "FatigueLevel_1to10", "RiskLevel"]], use_container_width=True)
     
-    st.subheader("⚠️ High Risk Workers (Require Immediate Action)")
+    st.subheader("High Risk Workers (Require Immediate Action)")
     high_risk = df_workers[df_workers["RiskLevel"] == "High"]
     if not high_risk.empty:
         st.warning(f"Found {len(high_risk)} high-risk workers. Check their PPE and Fatigue levels.")
         st.table(high_risk[["WorkerID", "Name", "PPE_Compliance_pct", "FatigueLevel_1to10"]])
 
-# --- INCIDENTS ---
+
 elif menu_choice == "Safety Incidents":
-    st.title("⚠️ Safety Incidents Database")
+    st.title("Safety Incidents Database")
     
     col1, col2 = st.columns(2)
     shift_filter = col1.selectbox("Filter by Shift", ["All", "Day", "Night"])
@@ -128,9 +116,9 @@ elif menu_choice == "Safety Incidents":
     
     st.dataframe(df_inc[["IncidentID", "Date", "Shift", "IncidentType", "SeverityClass", "IncidentStatus"]], use_container_width=True)
 
-# --- EQUIPMENT ---
+
 elif menu_choice == "Equipment Data":
-    st.title("🚜 Equipment Condition Monitoring")
+    st.title(" Equipment Condition Monitoring")
     df_eq = pd.DataFrame(equipment)
     
     st.dataframe(df_eq[["EquipmentID", "EquipmentType", "Temperature_C", "Vibration_mms", "Availability_pct", "MaintenanceStatus"]], use_container_width=True)
@@ -141,13 +129,13 @@ elif menu_choice == "Equipment Data":
         v_stat = vib_status(e["Vibration_mms"])
         
         if t_stat == "CRITICAL" or v_stat == "CRITICAL":
-            st.error(f"🔴 **{e['EquipmentID']}** - Temp: {e['Temperature_C']}°C ({t_stat}) | Vib: {e['Vibration_mms']}mm/s ({v_stat}) - **INSPECT IMMEDIATELY**")
+            st.error(f" **{e['EquipmentID']}** - Temp: {e['Temperature_C']}°C ({t_stat}) | Vib: {e['Vibration_mms']}mm/s ({v_stat}) - **INSPECT IMMEDIATELY**")
         elif t_stat == "WARNING" or v_stat == "WARNING":
-            st.warning(f"🟡 **{e['EquipmentID']}** - Temp: {e['Temperature_C']}°C ({t_stat}) | Vib: {e['Vibration_mms']}mm/s ({v_stat})")
+            st.warning(f" **{e['EquipmentID']}** - Temp: {e['Temperature_C']}°C ({t_stat}) | Vib: {e['Vibration_mms']}mm/s ({v_stat})")
 
-# --- MAINTENANCE ---
+
 elif menu_choice == "Maintenance Data":
-    st.title("🔧 Maintenance Overview")
+    st.title(" Maintenance Overview")
     df_eq = pd.DataFrame(equipment)
     
     for index, row in df_eq.iterrows():
