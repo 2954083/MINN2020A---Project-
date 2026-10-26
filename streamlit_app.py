@@ -3,11 +3,77 @@ import pandas as pd
 from datetime import datetime
 import os
 import streamlit as st
+st.set_page_config(
+    page_title="Khwezi Mining Monitor If i can't be GROWN it can be MINED",
+    page_icon="underground-mining-equipment.webp",
+    layout="wide"
+)
 
-st.write("Current folder:", os.getcwd())
-st.write("Image exists:", os.path.exists("underground-mining-equipment.webp"))
-st.set_page_config(page_title="Khwezi Mining Monitor",  layout="wide")
-st.image( "underground-mining-equipment.webp", use_container_width=True )
+def get_image_base64(image_path):
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode()
+
+background_image = get_image_base64(
+    "underground-mining-equipment.webp"
+)
+
+
+st.markdown(
+    f"""
+    <style>
+    /* Main application background */
+    [data-testid="stAppViewContainer"] {{
+        background-image:
+            linear-gradient(
+                rgba(12, 18, 28, 0.78),
+                rgba(12, 18, 28, 0.78)
+            ),
+            url("data:image/webp;base64,{background_image}");
+
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }}
+
+    /* Make the top header transparent */
+    [data-testid="stHeader"] {{
+        background: transparent;
+    }}
+
+    /* Sidebar styling */
+    [data-testid="stSidebar"] > div:first-child {{
+        background-color: rgba(48, 29, 25, 0.96);
+    }}
+
+    /* Sidebar text */
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] p {{
+        color: white;
+    }}
+
+    /* Main headings */
+    h1, h2, h3 {{
+        color: #FFFFFF;
+    }}
+
+    /* General text */
+    [data-testid="stAppViewContainer"] .stMarkdown p {{
+        color: #F5F5F5;
+    }}
+
+    /* Gold divider */
+    hr {{
+        border-color: #D4AF37;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+
 
 st.markdown(
     "<h2 style='text-align: center; color: #D4AF37; font-style: italic;'>"
