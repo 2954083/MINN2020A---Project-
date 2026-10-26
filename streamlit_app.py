@@ -10,7 +10,7 @@ st.markdown(
     '"If it can\'t be grown, it must be mined."'
     "</h2>",
     unsafe_allow_html=True
-)
+) 
 st.divider()
 
 # Load Data
